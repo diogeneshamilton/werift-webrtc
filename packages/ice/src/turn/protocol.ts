@@ -212,15 +212,15 @@ class TurnClient implements Protocol {
         f("cancel");
       });
 
-      while (run) {
-        // refresh before expire
-        await setTimeout((5 / 6) * this.lifetime * 1000);
+      // while (run) {
+      //   // refresh before expire
+      //   await setTimeout((5 / 6) * this.lifetime * 1000);
 
-        const request = new Message(methods.REFRESH, classes.REQUEST);
-        request.setAttribute("LIFETIME", this.lifetime);
+      //   const request = new Message(methods.REFRESH, classes.REQUEST);
+      //   request.setAttribute("LIFETIME", this.lifetime);
 
-        await this.request(request, this.server);
-      }
+      //   await this.request(request, this.server);
+      // }
     });
 
   async request(request: Message, addr: Address): Promise<[Message, Address]> {
